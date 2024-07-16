@@ -1,0 +1,110 @@
+Open Watcom Linker Version 2.0 beta May  2 2024 01:47:27 (32-bit)
+Copyright (c) 2002-2024 The Open Watcom Contributors. All Rights Reserved.
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       24/07/16 14:51:40
+Executable Image: /home/juan/projects/luax/build/kernel.bin
+creating a RAW Binary Image executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          00000364             00000026
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_ENTRY                 CODE           AUTO           00000000        00000013
+_TEXT                  CODE           AUTO           00000013        00000350
+CONST                  DATA           DGROUP         00000364        00000026
+CONST2                 DATA           DGROUP         0000038a        00000000
+_DATA                  DATA           DGROUP         0000038a        00000000
+__NASMDEFSEG                          AUTO           0000038a        00000098
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: /home/juan/projects/luax/build/kernel/c/commands.obj(/home/juan/projects/luax/src/kernel/commands.c)
+00000013       command_line_
+00000066+      echo_command_
+00000107+      clear_command_
+0000016e+      sound_command_
+Module: /home/juan/projects/luax/build/kernel/c/main.obj(/home/juan/projects/luax/src/kernel/main.c)
+000001c5       _cstart_
+Module: /home/juan/projects/luax/build/kernel/c/stdio.obj(/home/juan/projects/luax/src/kernel/stdio.c)
+000002a7       putc_
+000002ce       puts_
+Module: /home/juan/projects/luax/build/kernel/c/string.obj(/home/juan/projects/luax/src/kernel/string.c)
+00000305       strcmp_
+Module: /home/juan/projects/luax/build/kernel/asm/main.obj(main.asm)
+00000000       entry
+Module: /home/juan/projects/luax/build/kernel/asm/sound.obj(sound.asm)
+0000038a       _blaster_test
+Module: /home/juan/projects/luax/build/kernel/asm/x86.obj(x86.asm)
+00000400       _x86_Put_Message
+00000413       _x86_clear
+0000041d       _x86_keyboard
+
+
+                        +---------------------+
+                        |   Module Segments   |
+                        +---------------------+
+
+! = 32-bit segment
+c = initialized communal data
+
+Module          Segment               Class           Address         Size
+======          =======               =====           =======         ====
+
+/home/juan/projects/luax/src/kernel/commands.c
+                _TEXT                 CODE           00000013         000001b2
+                CONST                 DATA           00000364         00000024
+                CONST2                DATA           0000038a         00000000
+                _DATA                 DATA           0000038a         00000000
+/home/juan/projects/luax/src/kernel/main.c
+                _TEXT                 CODE           000001c5         000000e2
+                CONST                 DATA           00000388         00000002
+                CONST2                DATA           0000038a         00000000
+                _DATA                 DATA           0000038a         00000000
+/home/juan/projects/luax/src/kernel/stdio.c
+                _TEXT                 CODE           000002a7         0000005e
+                CONST                 DATA           0000038a         00000000
+                CONST2                DATA           0000038a         00000000
+                _DATA                 DATA           0000038a         00000000
+/home/juan/projects/luax/src/kernel/string.c
+                _TEXT                 CODE           00000305         0000005e
+                CONST                 DATA           0000038a         00000000
+                CONST2                DATA           0000038a         00000000
+                _DATA                 DATA           0000038a         00000000
+main.asm        _ENTRY                CODE           00000000         00000013
+sound.asm       __NASMDEFSEG                         0000038a         00000076
+x86.asm         __NASMDEFSEG                         00000400         00000022
+Warning! W1014: stack segment not found
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0200 (512.)
+Memory size:  0422 (1058.)
+Entry point address: 00000000
+Link time: 00:00.00
